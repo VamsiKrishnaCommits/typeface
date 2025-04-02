@@ -122,9 +122,9 @@ This application can be run using Docker and Docker Compose for easy development
 docker-compose up --build
 ```
 
-2. Access the API at:
+2. Access the API and swagger docs at:
 ```
-http://127.0.0.1:8000
+http://127.0.0.1:8000 and http:/127.0.0.1:8000/docs respecively
 ```
 
 ### Docker Volumes
