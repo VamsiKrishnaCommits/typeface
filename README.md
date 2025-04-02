@@ -1,5 +1,18 @@
-
 A Flask-based RESTful API for file management with versioning support, built using Flask-RESTX.
+
+## Project Structure
+
+```
+.
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   └── routes.py
+├── uploads/
+├── requirements.txt
+├── run.py
+└── README.md
+```
 
 ## Features
 
@@ -7,7 +20,6 @@ A Flask-based RESTful API for file management with versioning support, built usi
 - File versioning
 - Metadata management
 - Soft delete functionality
-- Comprehensive test suite
 
 ## Architecture
 
@@ -104,8 +116,6 @@ The soft delete system:
    - Version listings
 4. Maintains data integrity while allowing potential recovery
 
-
-
 ## Docker Setup
 
 This application can be run using Docker and Docker Compose for easy development and deployment.
@@ -132,8 +142,6 @@ http://127.0.0.1:8000 and http:/127.0.0.1:8000/docs respecively
 The application uses two Docker volumes for persistence:
 - `uploads`: Stores uploaded files
 - `instance`: Stores the SQLite database
-
-
 
 ## You can also run it natively
 
@@ -164,7 +172,6 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-
 ## Running the Application
 
 1. Start the development server:
@@ -172,38 +179,11 @@ pip install -r requirements.txt
 python run.py
 ```
 
-
 The application will be available at `http://127.0.0.1:5000`
 
 2. Access the Swagger UI:
    - Open your browser and navigate to `http://127.0.0.1:5000/docs`
    - You'll see the interactive API documentation
-
-3. Run tests:
-```bash
-pytest tests/
-```
-
-4. Run tests with coverage report:
-```bash
-pytest --cov=app tests/
-```
-
-
-
-## Project Structure
-
-```
-.
-├── app/
-│   ├── __init__.py
-│   ├── models.py
-│   └── routes.py
-├── uploads/
-├── requirements.txt
-├── run.py
-└── README.md
-```
 
 ## Storage
 
