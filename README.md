@@ -185,6 +185,39 @@ The application will be available at `http://127.0.0.1:5000`
    - Open your browser and navigate to `http://127.0.0.1:5000/docs`
    - You'll see the interactive API documentation
 
+## Future Work and Known Issues
+
+### Concurrency and Race Conditions
+1. File Version Updates
+   - Current implementation lacks proper locking mechanisms for concurrent file updates
+   - Risk of race conditions when multiple users update the same file simultaneously
+   - Need to implement optimistic locking or version control checks
+
+
+
+### Performance Considerations
+1. Large File Handling
+   - Current implementation loads entire files into memory
+   - Need to implement chunked file uploads and downloads
+   - Consider adding support for resumable uploads
+
+2. Scalability
+   - Local filesystem storage might not scale well
+   - Consider implementing distributed storage solutions
+   - Add support for cloud storage providers (S3, GCS, etc.)
+
+### Security Improvements
+1. File Validation
+   - Add comprehensive file type validation
+   - Implement file content scanning
+   - Set configurable file size limits
+
+2. Access Control
+   - Implement user authentication
+   - Add role-based access control
+   - Add file ownership and sharing capabilities
+
+
 ## Storage
 
 Files are stored in the local filesystem under the `uploads` directory. The SQLite database stores file metadata and paths.
