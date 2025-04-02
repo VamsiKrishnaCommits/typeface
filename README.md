@@ -1,5 +1,45 @@
 A Flask-based RESTful API for file management with versioning support, built using Flask-RESTX.
 
+## Overview
+
+This project is a robust file management system that provides versioned file storage with a RESTful API interface. It's designed to handle file operations with proper versioning control, similar to how version control systems manage documents.
+
+### Tech Stack
+- **Backend Framework**: Flask with Flask-RESTX for API development
+- **Database**: SQLite with SQLAlchemy ORM
+- **API Documentation**: Swagger UI (automatically generated via Flask-RESTX)
+- **Containerization**: Docker and Docker Compose
+- **Storage**: Local filesystem (with a structured upload directory)
+
+### Key Capabilities
+- Upload and manage files with automatic versioning
+- Track file metadata (size, type, timestamps)
+- Maintain version history with parent-child relationships
+- Soft delete functionality for safe file removal
+- RESTful API with comprehensive Swagger documentation
+- Containerized deployment for easy setup
+
+### Quick Start
+1. **Using Docker** (Recommended):
+   ```bash
+   docker-compose up --build
+   ```
+   Access at: http://127.0.0.1:8000
+
+2. **Native Installation**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+   pip install -r requirements.txt
+   python run.py
+   ```
+   Access at: http://127.0.0.1:5000
+
+### API Documentation
+- Swagger UI is available at `/docs` endpoint
+- Interactive documentation with try-it-out functionality
+- Complete API specifications and request/response examples
+
 ## Project Structure
 
 ```
@@ -155,69 +195,3 @@ The application uses two Docker volumes for persistence:
 git clone <repository-url>
 cd <repository-name>
 ```
-
-2. Create and activate a virtual environment:
-```bash
-# On macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-
-# On Windows
-python -m venv venv
-venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## Running the Application
-
-1. Start the development server:
-```bash
-python run.py
-```
-
-The application will be available at `http://127.0.0.1:5000`
-
-2. Access the Swagger UI:
-   - Open your browser and navigate to `http://127.0.0.1:5000/docs`
-   - You'll see the interactive API documentation
-
-## Future Work and Known Issues
-
-### Concurrency and Race Conditions
-1. File Version Updates
-   - Current implementation lacks proper locking mechanisms for concurrent file updates
-   - Risk of race conditions when multiple users update the same file simultaneously
-   - Need to implement optimistic locking or version control checks
-
-
-
-### Performance Considerations
-1. Large File Handling
-   - Current implementation loads entire files into memory
-   - Need to implement chunked file uploads and downloads
-   - Consider adding support for resumable uploads
-
-2. Scalability
-   - Local filesystem storage might not scale well
-   - Consider implementing distributed storage solutions
-   - Add support for cloud storage providers (S3, GCS, etc.)
-
-### Security Improvements
-1. File Validation
-   - Add comprehensive file type validation
-   - Implement file content scanning
-   - Set configurable file size limits
-
-2. Access Control
-   - Implement user authentication
-   - Add role-based access control
-   - Add file ownership and sharing capabilities
-
-
-## Storage
-
-Files are stored in the local filesystem under the `uploads` directory. The SQLite database stores file metadata and paths.
