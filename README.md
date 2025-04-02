@@ -169,8 +169,6 @@ pytest --cov=app tests/
 │   ├── __init__.py
 │   ├── models.py
 │   └── routes.py
-├── tests/
-│   └── test_files.py
 ├── uploads/
 ├── requirements.txt
 ├── run.py
