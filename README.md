@@ -143,30 +143,61 @@ The test suite (`tests/test_files.py`) provides comprehensive coverage:
 - Verifies both happy path and error conditions
 - Tests all API endpoints and major features
 
-## Setup and Running
+## Prerequisites
 
-1. Install dependencies:
+- Python 3.8 or higher
+- pip (Python package installer)
+
+## Setup
+
+1. Clone the repository (if using Git):
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
+
+2. Create and activate a virtual environment:
+```bash
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# On Windows
+python -m venv venv
+venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run tests:
+
+## Running the Application
+
+1. Start the development server:
+```bash
+python run.py
+```
+
+
+The application will be available at `http://localhost:5000`
+
+2. Access the Swagger UI:
+   - Open your browser and navigate to `http://localhost:5000/docs`
+   - You'll see the interactive API documentation
+
+3. Run tests:
 ```bash
 pytest tests/
 ```
 
-3. Run the application:
+4. Run tests with coverage report:
 ```bash
-flask run
+pytest --cov=app tests/
 ```
 
-## API Documentation
 
-The API documentation is available through Swagger UI at `/` when running the application. It provides:
-- Interactive API documentation
-- Request/response schemas
-- Try-it-out functionality
-- Example requests and responses
 
 ## Project Structure
 
