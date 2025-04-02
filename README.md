@@ -105,44 +105,6 @@ The soft delete system:
    - Version listings
 4. Maintains data integrity while allowing potential recovery
 
-## Testing
-
-The test suite (`tests/test_files.py`) provides comprehensive coverage:
-
-### Test Categories
-
-1. Basic Operations
-   - `test_empty_db`: Verifies empty database state
-   - `test_upload_file_with_metadata`: Tests full file upload with all fields
-   - `test_upload_file_without_metadata`: Tests minimal file upload
-
-2. File Retrieval
-   - `test_get_file`: Tests file download and headers
-   - `test_get_nonexistent_file`: Tests 404 handling
-
-3. Metadata Management
-   - `test_update_file_metadata_only`: Tests metadata updates
-   - Verifies version number doesn't change
-
-4. Versioning
-   - `test_update_file_creates_new_version`: Tests version creation
-   - Verifies version numbers, parent relationships
-   - Tests version listing endpoint
-   - Confirms only latest version appears in main listing
-
-5. Deletion
-   - `test_delete_file`: Tests soft delete functionality
-   - `test_delete_nonexistent_file`: Tests deletion error handling
-
-### Test Implementation
-
-- Uses pytest fixtures for database and file system setup
-- Creates temporary SQLite database for each test
-- Creates temporary upload directory for files
-- Cleans up all temporary files after tests
-- Verifies both happy path and error conditions
-- Tests all API endpoints and major features
-
 ## Prerequisites
 
 - Python 3.8 or higher
