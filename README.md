@@ -143,10 +143,10 @@ python run.py
 ```
 
 
-The application will be available at `http://localhost:5000`
+The application will be available at `http://127.0.0.1:5000`
 
 2. Access the Swagger UI:
-   - Open your browser and navigate to `http://localhost:5000/docs`
+   - Open your browser and navigate to `http://127.0.0.1:5000/docs`
    - You'll see the interactive API documentation
 
 3. Run tests:
@@ -177,4 +177,32 @@ pytest --cov=app tests/
 
 ## Storage
 
-Files are stored in the local filesystem under the `uploads` directory. The SQLite database stores file metadata and paths. 
+Files are stored in the local filesystem under the `uploads` directory. The SQLite database stores file metadata and paths.
+
+## Docker Setup
+
+This application can be run using Docker and Docker Compose for easy development and deployment.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Running with Docker
+
+1. Build and start the application:
+```bash
+docker-compose up --build
+```
+
+2. Access the API at:
+```
+http://127.0.0.1:8000
+```
+
+### Docker Volumes
+
+The application uses two Docker volumes for persistence:
+- `uploads`: Stores uploaded files
+- `instance`: Stores the SQLite database
+

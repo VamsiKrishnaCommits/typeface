@@ -52,3 +52,10 @@ coverage.xml
 # Logs
 *.log
 logs/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Local development
+*.db
