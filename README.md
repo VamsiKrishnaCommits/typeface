@@ -1,4 +1,3 @@
-# File Management API
 
 A Flask-based RESTful API for file management with versioning support, built using Flask-RESTX.
 
@@ -105,7 +104,38 @@ The soft delete system:
    - Version listings
 4. Maintains data integrity while allowing potential recovery
 
-## Prerequisites
+
+
+## Docker Setup
+
+This application can be run using Docker and Docker Compose for easy development and deployment.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Running with Docker
+
+1. Build and start the application:
+```bash
+docker-compose up --build
+```
+
+2. Access the API at:
+```
+http://127.0.0.1:8000
+```
+
+### Docker Volumes
+
+The application uses two Docker volumes for persistence:
+- `uploads`: Stores uploaded files
+- `instance`: Stores the SQLite database
+
+
+
+## You can also run it natively
 
 - Python 3.8 or higher
 - pip (Python package installer)
@@ -178,31 +208,3 @@ pytest --cov=app tests/
 ## Storage
 
 Files are stored in the local filesystem under the `uploads` directory. The SQLite database stores file metadata and paths.
-
-## Docker Setup
-
-This application can be run using Docker and Docker Compose for easy development and deployment.
-
-### Prerequisites
-
-- Docker
-- Docker Compose
-
-### Running with Docker
-
-1. Build and start the application:
-```bash
-docker-compose up --build
-```
-
-2. Access the API at:
-```
-http://127.0.0.1:8000
-```
-
-### Docker Volumes
-
-The application uses two Docker volumes for persistence:
-- `uploads`: Stores uploaded files
-- `instance`: Stores the SQLite database
-
